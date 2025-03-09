@@ -18,7 +18,14 @@ LinkedList* LinkedListRemoveElement(LinkedList* head, LinkedList* element);
 LinkedList* LinkedListRemovePosition(LinkedList* head, size_t position);
 LinkedList* LinkedListRemoveTail(LinkedList* head);
 
+LinkedList* LinkedListEmpty(LinkedList* head);
+
+int LinkedListIsEmpty(LinkedList* head);
+size_t LinkedListGetSize(LinkedList* head);
+
 LinkedList* LinkedListFindKey(LinkedList* head, int key);
 LinkedList* LinkedListFindTail(LinkedList* head);
+
+LinkedList* LinkedListRevers(LinkedList* head);
 
 #endif

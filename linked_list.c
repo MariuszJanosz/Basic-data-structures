@@ -145,6 +145,37 @@ LinkedList* LinkedListRemoveTail(LinkedList* head)
 	}
 }
 
+LinkedList* LinkedListEmpty(LinkedList* head)
+{
+	if (!head) return NULL;
+	LinkedList* ptr = head->next;
+	while (ptr)
+	{
+		free(head);
+		head = ptr;
+		ptr = ptr->next;
+	}
+	free(head);
+	return NULL;
+}
+
+int LinkedListIsEmpty(LinkedList* head)
+{
+	if (head) return 0;
+	return 1;
+}
+
+size_t LinkedListGetSize(LinkedList* head)
+{
+	size_t size = 0;
+	while (head)
+	{
+		head = head->next;
+		++size;
+	}
+	return size;
+}
+
 LinkedList* LinkedListFindKey(LinkedList* head, int key)
 {
 	while (head)
@@ -163,4 +194,20 @@ LinkedList* LinkedListFindTail(LinkedList* head)
 		if (!head->next) return head;
 		head = head->next;
 	}
+}
+
+LinkedList* LinkedListRevers(LinkedList* head)
+{
+	if (!head) return head;
+	LinkedList* ptr1, * ptr2;
+	ptr1 = NULL;
+	ptr2 = head;
+	while (ptr2)
+	{
+		head = head->next;
+		ptr2->next = ptr1;
+		ptr1 = ptr2;
+		ptr2 = head;
+	}
+	return ptr1;
 }

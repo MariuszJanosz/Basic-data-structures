@@ -21,6 +21,8 @@ int main(int argc, char** argv)
 	head = LinkedListRemoveHead(head);
 	head = LinkedListRemovePosition(head, 3);
 
+	head = LinkedListRevers(head);
+
 	LinkedListPrint(head);
 
 	return 0;
