@@ -34,6 +34,7 @@ int main(int argc, char** argv)
 		head = DoublyLinkedListInsertAtBeginning(head, 2);
 		head = DoublyLinkedListInsertAtBeginning(head, 3);
 		head = DoublyLinkedListInsertAtBeginning(head, 4);
+		head = DoublyLinkedListInsertAtBeginning(head, 5);
 		head = DoublyLinkedListInsertAtPosition(head, 10, 3);
 		head = DoublyLinkedListInsertAtEnd(head, 7);
 
@@ -41,6 +42,8 @@ int main(int argc, char** argv)
 		head = DoublyLinkedListRemoveElement(head, head->next);
 		head = DoublyLinkedListRemovePosition(head, 1);
 		head = DoublyLinkedListRemoveTail(head);
+
+		head = DoublyLinkedListRevers(head);
 
 		DoublyLinkedListPrint(head);
 	}

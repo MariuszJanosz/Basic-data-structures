@@ -186,3 +186,54 @@ DoublyLinkedList* DoublyLinkedListEmpty(DoublyLinkedList* head)
 	free(head);
 	return NULL;
 }
+
+int DoublyLinkedListIsEmpty(DoublyLinkedList* head)
+{
+	if (head) return 0;
+	return 1;
+}
+
+size_t DoublyLinkedListGetSize(DoublyLinkedList* head)
+{
+	size_t size = 0;
+	while (head)
+	{
+		head = head->next;
+		++size;
+	}
+	return size;
+}
+
+DoublyLinkedList* DoublyLinkedListFindKey(DoublyLinkedList* head, int key)
+{
+	while (head)
+	{
+		if (head->data == key) return head;
+		head = head->next;
+	}
+	return head;
+}
+
+DoublyLinkedList* DoublyLinkedListFindTail(DoublyLinkedList* head)
+{
+	if (!head) return head;
+	while (1)
+	{
+		if (!head->next) return head;
+		head = head->next;
+	}
+}
+
+DoublyLinkedList* DoublyLinkedListRevers(DoublyLinkedList* head)
+{
+	if (!head) return head;
+	DoublyLinkedList* ptr;
+	while (head)
+	{
+		ptr = head->previous;
+		head->previous = head->next;
+		head->next = ptr;
+		if (!head->previous) return head;
+		head = head->previous;
+	}
+}
