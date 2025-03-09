@@ -1,0 +1,1 @@
+This is a simple implementation of basic data structure written in C as a beginner friendly excercise.

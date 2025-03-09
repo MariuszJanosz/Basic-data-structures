@@ -80,7 +80,109 @@ DoublyLinkedList* DoublyLinkedListInsertAtEnd(DoublyLinkedList* head, int data)
 	return head;
 }
 
+DoublyLinkedList* DoublyLinkedListRemoveHead(DoublyLinkedList* head)
+{
+	if (!head) return NULL;
+	if (!head->next)
+	{
+		free(head);
+		return NULL;
+	}
+	head = head->next;
+	free(head->previous);
+	head->previous = NULL;
+	return head;
+}
 
+DoublyLinkedList* DoublyLinkedListRemoveElement(DoublyLinkedList* head, DoublyLinkedList* element)
+{
+	if (!head || !element) return head;
 
+	DoublyLinkedList* ptr = head;
+	if (element == ptr)
+	{
+		ptr = ptr->next;
+		free(element);
+		if (ptr) ptr->previous = NULL;
+		return ptr;
+	}
 
+	while (1)
+	{
+		if (ptr->next == element)
+		{
+			ptr->next = element->next;
+			if (element->next) element->next->previous = ptr;
+			free(element);
+			return head;
+		}
+		ptr = ptr->next;
+		if (!ptr) return head;
+	}
+}
 
+DoublyLinkedList* DoublyLinkedListRemovePosition(DoublyLinkedList* head, size_t position)
+{
+	if (!head) return NULL;
+	if (position == 0) return DoublyLinkedListRemoveHead(head);
+	size_t counter = 1;
+	DoublyLinkedList* ptr= head;
+	while (ptr->next)
+	{
+		if (counter == position)
+		{
+			if (ptr->next->next)
+			{
+				ptr->next = ptr->next->next;
+				free(ptr->next->previous);
+				ptr->next->previous = ptr;
+				return head;
+			}
+			else
+			{
+				free(ptr->next);
+				ptr->next = NULL;
+				return head;
+			}
+		}
+		++counter;
+		ptr = ptr->next;
+	}
+	return head;
+}
+
+DoublyLinkedList* DoublyLinkedListRemoveTail(DoublyLinkedList* head)
+{
+	if (!head) return NULL;
+	if (!head->next)
+	{
+		free(head);
+		return NULL;
+	}
+
+	DoublyLinkedList* ptr = head;
+	while (1)
+	{
+		if (!ptr->next->next)
+		{
+			free(ptr->next);
+			ptr->next = NULL;
+			return head;
+		}
+		ptr = ptr->next;
+	}
+}
+
+DoublyLinkedList* DoublyLinkedListEmpty(DoublyLinkedList* head)
+{
+	if (!head) return NULL;
+	DoublyLinkedList* ptr = head->next;
+	while (ptr)
+	{
+		free(head);
+		head = ptr;
+		ptr = ptr->next;
+	}
+	free(head);
+	return NULL;
+}
