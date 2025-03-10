@@ -7,6 +7,7 @@
 
 int main(int argc, char** argv)
 {
+	printf("<Linked list>\n");
 	{
 		LinkedList* head = NULL;
 
@@ -26,7 +27,7 @@ int main(int argc, char** argv)
 
 		LinkedListPrint(head);
 	}
-	printf("<================================================>\n");
+	printf("<Doubly linked list>\n");
 	{
 		DoublyLinkedList* head = NULL;
 
@@ -46,6 +47,18 @@ int main(int argc, char** argv)
 		head = DoublyLinkedListRevers(head);
 
 		DoublyLinkedListPrint(head);
+	}
+	printf("<Circular linked list>\n");
+	{
+		CircularLinkedList* head = NULL;
+
+		head = CircularLinkedListInsertAtBeginning(head, 1);
+		head = CircularLinkedListInsertAtBeginning(head, 2);
+		head = CircularLinkedListInsertAtBeginning(head, 3);
+		head = CircularLinkedListInsertAtPosition(head, 5, 1);
+		head = CircularLinkedListInsertAtEnd(head, 10);
+
+		CircularLinkedListPrint(head);
 	}
 	return 0;
 }
