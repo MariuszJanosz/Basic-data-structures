@@ -81,9 +81,94 @@ CircularLinkedList* CircularLinkedListInsertAtEnd(CircularLinkedList* head, int 
 	return head;
 }
 
+CircularLinkedList* CircularLinkedListRemoveHead(CircularLinkedList* head)
+{
+	if (!head) return NULL;
+	if (head->next == head)
+	{
+		free(head);
+		return NULL;
+	}
+	CircularLinkedList* ptr = CircularLinkedListFindTail(head);
+	ptr->next = head->next;
+	free(head);
+	return ptr->next;
+}
 
+CircularLinkedList* CircularLinkedListRemoveElement(CircularLinkedList* head, CircularLinkedList* element)
+{
+	if (!head || !element) return head;
+	if (head == element) return CircularLinkedListRemoveHead(head);
 
+	CircularLinkedList* ptr = head;
+	while (ptr->next != element)
+	{
+		if (ptr->next == head) return head;
+		ptr = ptr->next;
+	}
+	ptr->next = element->next;
+	free(element);
+	return head;
+}
 
+CircularLinkedList* CircularLinkedListRemovePosition(CircularLinkedList* head, size_t position);
+CircularLinkedList* CircularLinkedListRemoveTail(CircularLinkedList* head);
 
+CircularLinkedList* CircularLinkedListEmpty(CircularLinkedList* head)
+{
+	if (!head) return NULL;
+	CircularLinkedList* ptr;
+	while (head->next != head)
+	{
+		ptr = head->next;
+		head->next = ptr->next;
+		free(ptr);
+	}
+	free(head);
+	return NULL;
+}
 
+int CircularLinkedListIsEmpty(CircularLinkedList* head)
+{
+	if (head) return 0;
+	return 1;
+}
 
+size_t CircularLinkedListGetSize(CircularLinkedList* head)
+{
+	if (!head) return 0;
+	size_t size = 1;
+	CircularLinkedList* ptr = head;
+	while (ptr->next != head)
+	{
+		++size;
+		ptr = ptr->next;
+	}
+	return size;
+}
+
+CircularLinkedList* CircularLinkedListFindKey(CircularLinkedList* head, int key)
+{
+	if (!head) return NULL;
+	if (head->data == key) return head;
+	CircularLinkedList* ptr = head;
+	while (ptr->next != head)
+	{
+		ptr = ptr->next;
+		if (ptr->data == key) return ptr;
+	}
+	return NULL;
+}
+
+CircularLinkedList* CircularLinkedListFindTail(CircularLinkedList* head)
+{
+	if (!head) return NULL;
+	CircularLinkedList* ptr = head;
+	while (ptr->next != head)
+	{
+		ptr = ptr->next;
+	}
+	return ptr;
+}
+
+CircularLinkedList* CircularLinkedListRevers(CircularLinkedList* head);
