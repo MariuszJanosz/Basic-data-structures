@@ -111,8 +111,24 @@ CircularLinkedList* CircularLinkedListRemoveElement(CircularLinkedList* head, Ci
 	return head;
 }
 
-CircularLinkedList* CircularLinkedListRemovePosition(CircularLinkedList* head, size_t position);
-CircularLinkedList* CircularLinkedListRemoveTail(CircularLinkedList* head);
+CircularLinkedList* CircularLinkedListRemovePosition(CircularLinkedList* head, size_t position)
+{
+	size_t size = CircularLinkedListGetSize(head);
+	if (size == 0 || size < position + 1) return head;
+	CircularLinkedList* element = head;
+	while (position > 0)
+	{
+		element = element->next;
+		--position;
+	}
+	return CircularLinkedListRemoveElement(head, element);
+}
+
+CircularLinkedList* CircularLinkedListRemoveTail(CircularLinkedList* head)
+{
+	CircularLinkedList* element = CircularLinkedListFindTail(head);
+	return CircularLinkedListRemoveElement(head, element);
+}
 
 CircularLinkedList* CircularLinkedListEmpty(CircularLinkedList* head)
 {
@@ -171,4 +187,19 @@ CircularLinkedList* CircularLinkedListFindTail(CircularLinkedList* head)
 	return ptr;
 }
 
-CircularLinkedList* CircularLinkedListRevers(CircularLinkedList* head);
+CircularLinkedList* CircularLinkedListRevers(CircularLinkedList* head)
+{
+	if (!head) return NULL;
+	CircularLinkedList* previous = NULL;
+	CircularLinkedList* current = head;
+	CircularLinkedList* next;
+	do
+	{
+		next = current->next;
+		current->next = previous;
+		previous = current;
+		current = next;
+	} while (current != head);
+	current->next = previous;
+	return previous;
+}

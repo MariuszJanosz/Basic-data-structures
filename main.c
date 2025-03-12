@@ -57,8 +57,6 @@ int main(int argc, char** argv)
 		head = CircularLinkedListInsertAtBeginning(head, 3);
 		head = CircularLinkedListInsertAtPosition(head, 5, 1);
 		head = CircularLinkedListInsertAtEnd(head, 10);
-		head = CircularLinkedListRemoveHead(head);
-		head = CircularLinkedListRemoveElement(head, head->next);
 
 		CircularLinkedListPrint(head);
 	}
