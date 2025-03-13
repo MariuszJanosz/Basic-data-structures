@@ -4,6 +4,7 @@
 #include "linked_list.h"
 #include "doubly_linked_list.h"
 #include "circular_linked_list.h"
+#include "stack.h"
 
 int main(int argc, char** argv)
 {
@@ -59,6 +60,20 @@ int main(int argc, char** argv)
 		head = CircularLinkedListInsertAtEnd(head, 10);
 
 		CircularLinkedListPrint(head);
+	}
+	printf("<Stack>\n");
+	{
+		Stack stack;
+		StackInitialize(&stack);
+
+		StackPush(&stack, 1);
+		StackPush(&stack, 2);
+		StackPush(&stack, 3);
+		StackPush(&stack, 4);
+
+		StackPrint(&stack);
+
+		printf("Size of a stack:\n%llu\n", StackGetSize(&stack));
 	}
 	return 0;
 }
