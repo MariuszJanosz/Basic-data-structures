@@ -52,6 +52,16 @@ LinkedList* LinkedListInsertAtPosition(LinkedList* head, int data, size_t positi
 	return head;
 }
 
+LinkedList* LinkedListInsertAfterElement(LinkedList* head, int data, LinkedList* element)
+{
+	LinkedList* new = malloc(sizeof(LinkedList));
+	if (!new) exit(1);
+	new->data = data;
+	new->next = element->next;
+	element->next = new;
+	return head;
+}
+
 LinkedList* LinkedListInsertAtEnd(LinkedList* head, int data)
 {
 	LinkedList* temp = malloc(sizeof(LinkedList));
