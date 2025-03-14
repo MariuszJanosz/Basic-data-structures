@@ -8,4 +8,5 @@ add_executable(Basic_data_structures
 										doubly_linked_list.c doubly_linked_list.h
 										circular_linked_list.c circular_linked_list.h
 										stack.c stack.h
+										queue.c queue.h
 )
