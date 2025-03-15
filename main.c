@@ -104,6 +104,7 @@ int main(int argc, char** argv)
 		HashTableInsert(&hashtable, 2142);
 		HashTableInsert(&hashtable, 3854);
 		HashTableInsert(&hashtable, 54763);
+		HashTableInsert(&hashtable, 54763);
 		HashTableInsert(&hashtable, 9353);
 		HashTableInsert(&hashtable, 223);
 		HashTableDelet(&hashtable, 16);
