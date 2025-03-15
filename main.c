@@ -97,7 +97,44 @@ int main(int argc, char** argv)
 	}
 	printf("<Hash table>\n");
 	{
+		HashTable hashtable;
+		HashTableInitialize(&hashtable, 8);
 
+		HashTableInsert(&hashtable, 16);
+		HashTableInsert(&hashtable, 2142);
+		HashTableInsert(&hashtable, 3854);
+		HashTableInsert(&hashtable, 54763);
+		HashTableInsert(&hashtable, 9353);
+		HashTableInsert(&hashtable, 223);
+		HashTableDelet(&hashtable, 16);
+		HashTableDelet(&hashtable, 9);
+
+		HashTablePrint(&hashtable);
+
+		int i = HashTableIsPresent(&hashtable, 54763);
+		if (i)
+		{
+			printf("54763 is present in the hash table.\n");
+		}
+		else
+		{
+			printf("54763 is not present in the hash table.\n");
+		}
+		i = HashTableIsPresent(&hashtable, -8);
+		if (i)
+		{
+			printf("-8 is present in the hash table.\n");
+		}
+		else
+		{
+			printf("-8 is not present in the hash table.\n");
+		}
+
+		printf("Emptied hash table.\n");
+		HashTableEmpty(&hashtable);
+		HashTablePrint(&hashtable);
+
+		HashTableFree(&hashtable);
 	}
 	return 0;
 }
