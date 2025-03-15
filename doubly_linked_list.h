@@ -1,6 +1,8 @@
 #ifndef DOUBLY_LINKED_LIST_H
 #define DOUBLY_LINKED_LIST_H
 
+#include <stddef.h>
+
 typedef struct DoublyLinkedList
 {
 	int data;

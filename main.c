@@ -6,6 +6,7 @@
 #include "circular_linked_list.h"
 #include "stack.h"
 #include "queue.h"
+#include "hash_table.h"
 
 int main(int argc, char** argv)
 {
@@ -28,6 +29,7 @@ int main(int argc, char** argv)
 		head = LinkedListRevers(head);
 
 		LinkedListPrint(head);
+		LinkedListEmpty(head);
 	}
 	printf("<Doubly linked list>\n");
 	{
@@ -49,6 +51,7 @@ int main(int argc, char** argv)
 		head = DoublyLinkedListRevers(head);
 
 		DoublyLinkedListPrint(head);
+		DoublyLinkedListEmpty(head);
 	}
 	printf("<Circular linked list>\n");
 	{
@@ -61,6 +64,7 @@ int main(int argc, char** argv)
 		head = CircularLinkedListInsertAtEnd(head, 10);
 
 		CircularLinkedListPrint(head);
+		CircularLinkedListEmpty(head);
 	}
 	printf("<Stack>\n");
 	{
@@ -73,8 +77,8 @@ int main(int argc, char** argv)
 		StackPush(&stack, 4);
 
 		StackPrint(&stack);
-
 		printf("Size of a stack: %llu\n", StackGetSize(&stack));
+		StackEmpty(&stack);
 	}
 	printf("<Queue>\n");
 	{
@@ -89,6 +93,11 @@ int main(int argc, char** argv)
 		QueueEnqueue(&queue, 6);
 
 		QueuePrint(&queue);
+		QueueEmpty(&queue);
+	}
+	printf("<Hash table>\n");
+	{
+
 	}
 	return 0;
 }

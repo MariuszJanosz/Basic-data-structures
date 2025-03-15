@@ -9,4 +9,5 @@ add_executable(Basic_data_structures
 										circular_linked_list.c circular_linked_list.h
 										stack.c stack.h
 										queue.c queue.h
+										hash_table.c hash_table.h
 )
