@@ -1,12 +1,12 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-#include "linked_list.h"
-#include "doubly_linked_list.h"
-#include "circular_linked_list.h"
-#include "stack.h"
-#include "queue.h"
-#include "hash_table.h"
+#include "linked_lists/linked_list/linked_list.h"
+#include "linked_lists/doubly_linked_list/doubly_linked_list.h"
+#include "linked_lists/circular_linked_list/circular_linked_list.h"
+#include "stack/stack.h"
+#include "queue/queue.h"
+#include "hash_table/hash_table.h"
 
 int main(int argc, char** argv)
 {

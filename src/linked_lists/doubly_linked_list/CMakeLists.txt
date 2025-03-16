@@ -1,0 +1,1 @@
+add_library(doubly_linked_list doubly_linked_list.c doubly_linked_list.h)
