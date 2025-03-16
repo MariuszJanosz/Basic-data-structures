@@ -150,6 +150,15 @@ int main(int argc, char** argv)
 		root = BinaryTreeInsert(root, 6);
 
 		BinaryTreePrint(root);
+		printf("\n");
+
+		root = BinaryTreeDelete(root, BinaryTreeFind(root, 2));
+		BinaryTreePrint(root);
+		printf("\n");
+		
+		root = BinaryTreeEmpty(root);
+		BinaryTreePrint(root);
+		printf("\n");
 	}
 	return 0;
 }
