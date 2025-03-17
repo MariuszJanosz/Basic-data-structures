@@ -13,4 +13,5 @@ target_link_libraries(Basic_data_structures
 											stack
 											queue
 											hash_table
-											binary_tree)
+											binary_tree
+											heap)

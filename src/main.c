@@ -8,6 +8,7 @@
 #include "queue/queue.h"
 #include "hash_table/hash_table.h"
 #include "binary_trees/binary_tree/binary_tree.h"
+#include "binary_trees/heap/heap.h"
 
 int main(int argc, char** argv)
 {
@@ -159,6 +160,21 @@ int main(int argc, char** argv)
 		root = BinaryTreeEmpty(root);
 		BinaryTreePrint(root);
 		printf("\n");
+	}
+	printf("<Heap>\n");
+	{
+		Heap heap;
+		HeapInitialize(&heap, 0);
+
+		HeapInsert(&heap, 1);
+		HeapPrint(&heap);
+		HeapInsert(&heap, 2);
+		HeapPrint(&heap);
+		HeapInsert(&heap, 3);
+		HeapPrint(&heap);
+		HeapInsert(&heap, 4);
+
+		HeapPrint(&heap);
 	}
 	return 0;
 }
