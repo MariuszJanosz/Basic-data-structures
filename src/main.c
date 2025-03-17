@@ -167,12 +167,15 @@ int main(int argc, char** argv)
 		HeapInitialize(&heap, 0);
 
 		HeapInsert(&heap, 1);
-		HeapPrint(&heap);
 		HeapInsert(&heap, 2);
-		HeapPrint(&heap);
 		HeapInsert(&heap, 3);
-		HeapPrint(&heap);
 		HeapInsert(&heap, 4);
+		HeapInsert(&heap, 5);
+		HeapInsert(&heap, 6);
+		HeapInsert(&heap, 7);
+		HeapInsert(&heap, 8);
+		HeapInsert(&heap, 9);
+		HeapInsert(&heap, 10);
 
 		HeapPrint(&heap);
 	}

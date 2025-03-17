@@ -1,5 +1,6 @@
 #include <stdlib.h>
 #include <stdio.h>
+#include <string.h>
 
 #include "heap.h"
 
@@ -53,6 +54,82 @@ void HeapInsert(Heap* heap, int data)
 		index = (index - 1) / 2;
 	}
 	HeapHeapify(heap, 0);
+}
+
+void HeapModify(Heap* heap, size_t index, int new_data)
+{
+	if (index > heap->size - 1) exit(1);
+	if (heap->data[index] > new_data)
+	{
+		heap->data[index] = new_data;
+		HeapHeapify(heap, index);
+	}
+	else
+	{
+		heap->data[index] = new_data;
+		while (index)
+		{
+			index = (index - 1) / 2;
+			HeapHeapify(heap, index);
+		}
+	}
+}
+
+void HeapBuild(Heap* heap, int* array, size_t array_size)
+{
+	if (array_size == 0) exit(1);
+	if (array_size > heap->capacity) exit(1);
+	memcpy(heap->data, array, array_size * sizeof(int));
+	heap->size = array_size;
+	for (size_t i = (heap->size - 1) / 2; i > 0; --i)
+	{
+		HeapHeapify(heap, i);
+	}
+	HeapHeapify(heap, 0);
+}
+
+int HeapDeleteMax(Heap* heap)
+{
+	return HeapDelete(heap, 0);
+}
+
+int HeapDelete(Heap* heap, size_t index)
+{
+	if (index > heap->size - 1) exit(1);
+	if (index == heap->size - 1)
+	{
+		--heap->size;
+		return heap->data[index];
+	}
+	int temp = heap->data[index];
+	--heap->size;
+	heap->data[index] = heap->data[heap->size];
+	HeapHeapify(heap, index);
+	return temp;
+}
+
+void HeapEmpty(Heap* heap)
+{
+	while (heap->size)
+	{
+		HeapDelete(heap, heap->size - 1);
+	}
+}
+
+int HeapGetMax(Heap* heap)
+{
+	return heap->data[0];
+}
+
+int HeapIsEmpty(Heap* heap)
+{
+	if (heap->size == 0) return 1;
+	return 0;
+}
+
+void HeapDestroy(Heap* heap)
+{
+	free(heap->data);
 }
 
 void HeapPrint(Heap* heap)
