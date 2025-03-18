@@ -9,6 +9,7 @@
 #include "hash_table/hash_table.h"
 #include "binary_trees/binary_tree/binary_tree.h"
 #include "binary_trees/heap/heap.h"
+#include "graph/graph.h"
 
 int main(int argc, char** argv)
 {
@@ -178,6 +179,25 @@ int main(int argc, char** argv)
 		HeapInsert(&heap, 10);
 
 		HeapPrint(&heap);
+		HeapDestroy(&heap);
+	}
+	printf("<Graph>\n");
+	{
+		Graph graph;
+		GraphInitialize(&graph, 5);
+
+		GraphInsertVertex(&graph, 1, 10);
+		GraphInsertVertex(&graph, 2, -610);
+		GraphInsertVertex(&graph, 4, 39);
+		
+		GraphInsertEdge(&graph, 1, 2);
+		GraphInsertEdge(&graph, 1, 4);
+		GraphInsertEdge(&graph, 2, 4);
+
+		GraphDeleteVertex(&graph, 1);
+
+		GraphPrint(&graph);
+		GraphDestroy(&graph);
 	}
 	return 0;
 }
