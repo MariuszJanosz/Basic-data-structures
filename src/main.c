@@ -10,6 +10,7 @@
 #include "binary_trees/binary_tree/binary_tree.h"
 #include "binary_trees/heap/heap.h"
 #include "graph/graph.h"
+#include "dynamic_array/dynamic_array.h"
 
 int main(int argc, char** argv)
 {
@@ -198,6 +199,31 @@ int main(int argc, char** argv)
 
 		GraphPrint(&graph);
 		GraphDestroy(&graph);
+	}
+	printf("<Dynamic array>\n");
+	{
+		DynamicArray array;
+		DynamicArrayInitialize(&array, 16);
+
+		DynamicArrayPush(&array, 1);
+		DynamicArrayPush(&array, 2);
+		DynamicArrayPush(&array, 3);
+		DynamicArrayPush(&array, 4);
+		DynamicArrayPush(&array, 5);
+		DynamicArrayPush(&array, 6);
+		DynamicArrayPush(&array, 7);
+		DynamicArrayPush(&array, 8);
+		DynamicArrayPush(&array, 9);
+		DynamicArrayPush(&array, 10);
+		DynamicArrayPush(&array, 11);
+		DynamicArrayPush(&array, 12);
+		DynamicArrayPush(&array, 13);
+		DynamicArrayPush(&array, 14);
+		DynamicArrayPush(&array, 15);
+		DynamicArrayPush(&array, 16);
+		DynamicArrayPush(&array, 17);
+
+		DynamicarrayPrint(&array);
 	}
 	return 0;
 }

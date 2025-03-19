@@ -4,6 +4,7 @@ add_subdirectory(queue)
 add_subdirectory(hash_table)
 add_subdirectory(binary_trees)
 add_subdirectory(graph)
+add_subdirectory(dynamic_array)
 
 add_executable(Basic_data_structures main.c)
 
@@ -16,4 +17,5 @@ target_link_libraries(Basic_data_structures
 											hash_table
 											binary_tree
 											heap
-											graph)
+											graph
+											dynamic_array)
